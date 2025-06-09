@@ -19,7 +19,7 @@ class ProductController extends Controller
                   ->orWhere('description', 'like', '%' . $search . '%'); // Boleh juga cari di deskripsi
         }
 
-        // Fitur Sorting
+         // Fitur Sorting
         if ($request->has('sort')) {
             switch ($request->sort) {
                 case 'name_asc':
@@ -31,14 +31,16 @@ class ProductController extends Controller
                 case 'stock_desc':
                     $query->orderBy('stock', 'desc');
                     break;
-                // Tambahkan opsi sorting lain jika diperlukan
+                default: // <-- Tambahkan default case ini
+                    $query->orderBy('name', 'asc'); // Default: urutkan berdasarkan nama A-Z
+                    break;
             }
         } else {
-            // Default sorting jika tidak ada parameter sort
+            // Default sorting jika tidak ada parameter sort sama sekali
             $query->orderBy('name', 'asc');
         }
 
-        $products = $query->get(); // Ambil semua data produk yang sudah difilter/sortir
+        $products = $query->get();
 
         return view('products.index', compact('products'));
     }
