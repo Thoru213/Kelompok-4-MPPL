@@ -1,5 +1,3 @@
-{{-- resources/views/products/create.blade.php --}}
-
 @extends('layouts.app')
 
 @section('content')
@@ -31,35 +29,35 @@
             <div class="mb-6">
                 <label for="name" class="block text-gray-800 text-xl font-semibold mb-3">Nama Produk</label>
                 <input type="text" id="name" name="name" value="{{ old('name') }}"
-                       class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-3 focus:ring-blue-400 focus:border-transparent text-gray-900 text-lg placeholder-gray-500 transition duration-200 ease-in-out"
-                       placeholder="Contoh: Semen Tiga Roda 50kg" required>
+                    class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-3 focus:ring-blue-400 focus:border-transparent text-gray-900 text-lg placeholder-gray-500 transition duration-200 ease-in-out"
+                    placeholder="Contoh: Semen Tiga Roda 50kg" required>
             </div>
 
             <div class="mb-6">
                 <label for="description" class="block text-gray-800 text-xl font-semibold mb-3">Deskripsi Produk</label>
                 <textarea id="description" name="description" rows="6"
-                          class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-3 focus:ring-blue-400 focus:border-transparent text-gray-900 text-lg placeholder-gray-500 transition duration-200 ease-in-out"
-                          placeholder="Deskripsi lengkap tentang produk ini..." required>{{ old('description') }}</textarea>
+                        class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-3 focus:ring-blue-400 focus:border-transparent text-gray-900 text-lg placeholder-gray-500 transition duration-200 ease-in-out"
+                        placeholder="Deskripsi lengkap tentang produk ini..." required>{{ old('description') }}</textarea>
             </div>
 
             <div class="mb-6">
                 <label for="image" class="block text-gray-800 text-xl font-semibold mb-3">Gambar Produk</label>
                 <input type="file" id="image" name="image"
-                       class="w-full text-gray-900 text-lg file:mr-4 file:py-3 file:px-6 file:rounded-full file:border-0 file:text-lg file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 cursor-pointer transition duration-200 ease-in-out">
+                    class="w-full text-gray-900 text-lg file:mr-4 file:py-3 file:px-6 file:rounded-full file:border-0 file:text-lg file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 cursor-pointer transition duration-200 ease-in-out">
                 <p class="text-sm text-gray-600 mt-2">Format yang disarankan: JPG, PNG. Maks: 2MB.</p>
             </div>
 
             <div class="mb-6">
                 <label for="price" class="block text-gray-800 text-xl font-semibold mb-3">Harga (Rp)</label>
                 <input type="number" id="price" name="price" value="{{ old('price') }}" step="0.01" min="0"
-                       class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-3 focus:ring-blue-400 focus:border-transparent text-gray-900 text-lg placeholder-gray-500 transition duration-200 ease-in-out"
-                       placeholder="Contoh: 75000" required>
+                    class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-3 focus:ring-blue-400 focus:border-transparent text-gray-900 text-lg placeholder-gray-500 transition duration-200 ease-in-out"
+                    placeholder="Contoh: 75000" required>
             </div>
 
             <div class="mb-8">
                 <label for="stock" class="block text-gray-800 text-xl font-semibold mb-3">Stok</label>
                 <input type="number" id="stock" name="stock" value="{{ old('stock') }}" min="0"
-                       class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-3 focus:ring-blue-400 focus:border-transparent text-gray-900 text-lg placeholder-gray-500 transition duration-200 ease-in-out"
+                    class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-3 focus:ring-blue-400 focus:border-transparent text-gray-900 text-lg placeholder-gray-500 transition duration-200 ease-in-out"
                     placeholder="Contoh: 100" required>
             </div>
 
