@@ -15,30 +15,33 @@ Ryocera Purna K        |   23106050086
 
 
 
+
+
+
 # Panduan Setup Proyek GO-BLOCK
 
 Berikut adalah langkah-langkah yang diperlukan untuk menginstal dan menjalankan proyek GO-BLOCK.
 
 ---
 
-**2. Meng-Clone Repositori**
+**1. Meng-Clone Repositori**
    Clone proyek dari GitHub dan masuk ke direktori proyek.
    
    *git clone [URL_REPOSITORI_ANDA]*
 
 ---
 
-**3. Menginstal Dependensi PHP (Composer)**
+**2. Menginstal Dependensi PHP (Composer)**
    Instal semua dependensi backend yang terdaftar di composer.json.
    
    *composer install*
 
 ---
 
-**4. Mengatur File Lingkungan (.env)**
+**3. Mengatur File Environment (.env)**
    Salin file .env.example dan atur konfigurasi dasar aplikasi dan database.
    
-    copy *'.env.example .env'* di Windows
+   copy *.env.example* ke *.env*
 
    *php artisan key:generate*
 
@@ -46,24 +49,24 @@ Berikut adalah langkah-langkah yang diperlukan untuk menginstal dan menjalankan 
 
 ---
 
-**5. Mengatur Database**
+**4. Mengatur Database**
    Buat database MySQL dan jalankan migrasi untuk membuat tabel-tabel proyek.
    
-   # Buat database MySQL secara manual (misal: goblock_db)
+   Buat database MySQL secara manual *(misal: goblock_db)*
 
    *php artisan migrate*
-   # Untuk reset dan seed data awal: *php artisan migrate:fresh --seed*
+   **Untuk reset dan seed data awal: *php artisan migrate:fresh --seed***
 
 ---
 
-**6. Menginstal Dependensi Frontend (npm)**
+**5. Menginstal npm**
    Instal semua dependensi frontend yang terdaftar di package.json (Vite, Tailwind CSS, dll.).
    
    *npm install*
 
 ---
 
-**7. Menghubungkan Folder Penyimpanan Publik (Opsional)**
+**6. Menghubungkan Folder Penyimpanan Publik (Opsional)**
    Buat symlink untuk akses publik ke folder penyimpanan file yang diunggah.
    
    *php artisan storage:link*
