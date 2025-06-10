@@ -7,18 +7,10 @@
         <a href="#products-list" class="inline-block bg-white text-blue-800 px-10 py-4 rounded-full text-lg font-bold hover:bg-gray-200 transition duration-300 shadow-xl transform hover:scale-105">Jelajahi Produk</a>
     </section>
 
-    {{--  Tambah Produk Baru --}}
-    <section class="text-center mb-12">
-        <a href="{{ route('products.create') }}"
-        class="inline-block bg-green-600 text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-green-700 transition duration-300 shadow-lg transform hover:scale-105">+ Tambah Produk Baru</a>
-    </section>
-
     <form method="GET" action="{{ url('/') }}" class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
         <h2 class="text-4xl font-bold text-gray-800" id="products-list">Daftar Produk</h2>
         <div class="relative w-full md:w-auto flex items-center gap-2">
-            {{-- Input hidden untuk search agar filter tidak hilang saat sorting --}}
             <input type="hidden" name="search" value="{{ request('search') }}">
-            {{-- Select untuk Sorting --}}
             <select name="sort" onchange="this.form.submit()"
                     class="block appearance-none w-full bg-white border-2 border-gray-200 text-gray-700 py-3 px-5 pr-10 rounded-full leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent font-medium text-base shadow-sm">
                 <option value="">Sortir Produk</option>
@@ -32,7 +24,7 @@
         </div>
     </form>
 
-    @if($products->isEmpty())
+    @if(empty($products))
         <p class="text-center text-gray-600 text-xl mt-10">Produk tidak ditemukan.</p>
     @else
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">

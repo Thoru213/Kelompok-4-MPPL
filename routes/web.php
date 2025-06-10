@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 
 // Halaman Utama: Menampilkan daftar produk dari database
-Route::get('/', [ProductController::class, 'index'])->name('products.index'); // <-- Ini yang akan jadi halaman utama Anda
+Route::get('/', [ProductController::class, 'index'])->name('products.index');
 
 // Halaman Detail Produk
 Route::get('/product/{id}', [ProductController::class, 'show'])->name('products.show');
@@ -14,8 +14,8 @@ Route::get('/products/create', [ProductController::class, 'create'])->name('prod
 // Rute untuk memproses data dari form tambah produk
 Route::post('/products', [ProductController::class, 'store'])->name('products.store');
 
-// Rute-rute keranjang (jika Anda ingin mengaktifkannya nanti)
-Route::post('/cart/add/{id}', [ProductController::class, 'addToCart']);
-Route::get('/cart', [ProductController::class, 'viewCart']);
-Route::post('/cart/update/{id}', [ProductController::class, 'updateCart']);
-Route::post('/cart/remove/{id}', [ProductController::class, 'removeFromCart']);
+// Rute-rute Keranjang
+Route::post('/cart/add/{id}', [ProductController::class, 'addToCart'])->name('cart.add');
+Route::get('/cart', [ProductController::class, 'viewCart'])->name('cart.index');
+Route::post('/cart/update/{cartKey}', [ProductController::class, 'updateCart'])->name('cart.update');
+Route::post('/cart/remove/{cartKey}', [ProductController::class, 'removeFromCart'])->name('cart.remove');
