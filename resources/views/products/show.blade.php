@@ -20,15 +20,39 @@
             </div>
         </div>
         
-        <button id="openAddToCartModal"
-                class="bg-blue-600 text-white px-10 py-5 rounded-full text-xl font-bold hover:bg-blue-700 transition duration-300 shadow-lg transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300"
-                data-product-id="{{ $product->id }}"
-                data-product-name="{{ $product->name }}"
-                data-product-price="{{ $product->price }}"
-                data-product-image="{{ asset('images/' . $product->image) }}"
-                data-product-stock="{{ $product->stock }}">
-            Tambah ke Keranjang
-        </button>
+        {{-- BAGIAN INI TELAH DIGANTI DENGAN FORMULIR UNTUK MENAMBAH KE KERANJANG --}}
+        <form action="{{ route('cart.add', $product->id) }}" method="POST">
+            @csrf
+            <div class="flex items-center space-x-4 mt-6">
+                <label for="quantity" class="text-gray-700 text-xl font-semibold">Jumlah:</label>
+                <input type="number"
+                       name="quantity"
+                       id="quantity"
+                       value="1"
+                       min="1"
+                       max="{{ $product->stock }}" {{-- Batasi input sesuai stok --}}
+                       class="w-24 px-4 py-3 border border-gray-300 rounded-lg text-center text-xl
+                              focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                <button type="submit"
+                        class="bg-blue-600 text-white px-10 py-4 rounded-full text-xl font-bold
+                               hover:bg-blue-700 transition duration-300 shadow-lg transform hover:scale-105
+                               focus:outline-none focus:ring-4 focus:ring-blue-300">
+                    Tambah ke Keranjang
+                </button>
+            </div>
+        </form>
+
+        {{-- Ini adalah bagian untuk menampilkan pesan sukses atau error --}}
+        @if(session('success'))
+            <div class="mt-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+                <span class="block sm:inline">{{ session('success') }}</span>
+            </div>
+        @endif
+        @if(session('error'))
+            <div class="mt-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                <span class="block sm:inline">{{ session('error') }}</span>
+            </div>
+        @endif
     </div>
 </div>
 @endsection
